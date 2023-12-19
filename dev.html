@@ -1,0 +1,117 @@
+	sudo su -
+	yum install git
+	sudo wget -O /etc/yum.repos.d/jenkins.repo \
+https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo dnf upgrade
+# Add required dependencies for the jenkins package
+sudo dnf install fontconfig java-17-openjdk
+sudo dnf install jenkins
+sudo systemctl daemon-reload
+	sudo dnf install java-17-amazon-corretto-devel
+	sudo dnf install Jenkins
+	sudo systemctl enable jenkins
+	 sudo systemctl start jenkins
+	 sudo vi /var/lib/jenkins/secrets/initialAdminPassword
+	cd /opt/
+	ll
+	wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+	ll
+	tar -xzvf apache-maven-3.9.6-bin.tar.gz
+	ls
+	mv apache-maven-3.9.6 maven   -to rename
+	ll
+	ls
+	apache-maven-3.9.6-bin.tar.gz  aws  maven
+	[root@ip-172-31-3-141 opt]# cd maven
+	[root@ip-172-31-3-141 maven]# ls
+	LICENSE  NOTICE  README.txt  bin  boot  conf  lib
+	[root@ip-172-31-3-141 maven]# cd bin
+	[root@ip-172-31-3-141 bin]# ls
+	m2.conf  mvn  mvn.cmd  mvnDebug  mvnDebug.cmd  mvnyjp
+	[root@ip-172-31-3-141 bin]# ./mvn -v
+	cd ~                    ---to come out from all  directory
+	[root@ip-172-31-3-141 ~]# pwd
+	/root
+	vi .bash_profile
+	M2_HOME=/opt/maven
+	M2=/opt/maven/bin
+	JAVA_HOME=/usr/lib/jum/java-17-amazon-corretto.x86_64
+	PATH=$PATH:$HOME/bin:$M2_HOME:$M2:$JAVA_HOME
+To close click on “esc” and “:wq” and enter
+	Sudo su –
+	mvn -v
+
+maven application and deploy it on tomcat server using Jenkins
+	cd /opt
+	wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+	
+    
+
+
+
+TOMCAT
+ sudo su -
+ cd /opt
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.84/bin/apache-tomcat-9.0.84.tar.gz
+sudo yum install java-17-amazon-corretto-devel
+tar -xzvf apache-tomcat-9.0.84.tar.gz 
+mv apache-tomcat-9.0.84 tomcat
+cd tomcat
+ cd bin
+ ./startup.sh
+find / -name context.xml
+vi /tomcat/webapps/host-manager/META-INF/context.xml      //MAKE VALVE ELEMENTS IN COMMENTS
+ vi /tomcat/webapps/manager/META-INF/context.xml          //MAKE VALVE ELEMENTS IN COMMENTS
+cd ..
+cd conf
+ ll
+vi tomcat-users.xml
+//ADD THESE LINES BETWEEN <USER>
+	<role rolename="manager-gui"/>
+	<user username="manager" password="anyPassword" roles="manager-gui"/>
+
+	<role rolename="admin-gui"/>
+	<user username="admin" password="anyPassword" roles="admin-gui, manager-gui"/>
+
+
+cd ..
+ cd bin
+./shutdown.sh
+./startup.sh
+find / -name java
+
+
+
+
+
+
+
+
+
+
+<role rolename="manager-gui"/>
+
+<role rolename="manager-script"/>
+
+<role <role rolename="manager-jmx"/> 
+<rolename="manager-status"/>
+
+<user username="admin" password="admin" roles "manager-gui, manager-script, manager-jmx, manager-status"/>
+
+<user username="deployer" password="deployer" roles="manager-script"/>
+
+<user username="puji" password="puji" roles="manager-gui"/>
+
+
+https://medium.com/@GeorgeBaidooJr/setting-up-a-ci-cd-pipeline-using-git-jenkins-and-maven-6bd6f3f52886
+
+
+https://medium.com/cloudnloud/how-to-integrate-tomcat-server-in-cicd-pipeline-bbe59557a083
+
+https://enlear.academy/deploying-a-full-stack-application-on-aws-ec2-with-docker-a-step-by-step-guide-86363d99a5ff
+
+Anu git:
+https://github.com/anuhyagarlapati/tomcat.git
+
+https://github.com/deepa-mathan/job1
