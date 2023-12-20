@@ -1,0 +1,66 @@
+docker:
+ sudo yum update -y
+sudo yum install docker
+sudo service docker start
+sudo service docker status
+sudo su
+ docker search tomcat
+docker pull tomcat
+docker images
+docker run -d --name tomcat -p 8081:8080 tomcat
+ docker exec -it tomcat /bin/bash
+ pwd
+ ls
+cd webapps.dist
+cp -R * ../webapps
+
+
+
+
+
+
+
+
+
+
+
+# Create a new directory
+mkdir my_project
+
+# Change into the directory
+cd my_project
+
+# Initialize a new Git repository
+git init
+# Create a new file
+touch README.md
+
+# Add the file to the staging area
+git add README.md
+
+# Commit the changes
+git commit -m "Initial commit"
+git status
+# Create a new branch
+git branch feature_branch
+
+# Switch to the new branch
+git checkout feature_branch
+# or using the newer syntax
+# git switch feature_branch
+# Make changes to files
+echo "This is a new feature" >> README.md
+
+# Add and commit the changes
+git add README.md
+git commit -m "Add feature to README"
+# Switch back to the main branch
+git checkout main
+# or using the newer syntax
+# git switch main
+# Merge the feature branch into main
+git merge feature_branch
+# After resolving conflicts, add and commit changes
+git add README.md
+git commit -m "Merge branch 'feature_branch'"
+git log
